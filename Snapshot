@@ -213,7 +213,7 @@ height:30px;
     <td id="vidtitle" style="color:white;font-size:20px;text-align:center">Snapshot</td>
       <td class="tdata" style="text-align:right; width:180px" valign="top">
         <div id="menu" style='height:30px'>
-          <li id="cs" class="disp" onclick="this.blur();shoot()"><img src="https://lh6.googleusercontent.com/-1wZ0y5_Sqbc/VPeABkKgJEI/AAAAAAAAADY/dmTU5kt3Z-8/s30/camera-icon.png" />&nbsp;</li>
+          <li id="cs" class="disp" onclick="this.blur();shoot()"><img src="https://lh6.googleusercontent.com/-1wZ0y5_Sqbc/VPeABkKgJEI/AAAAAAAAADY/dmTU5kt3Z-8/s128/camera-icon.png" />&nbsp;</li>
           <li id="st" class="disp" onclick="this.blur();halt()">&#8718;&nbsp;</li>
           <li id="pp" class="disp" onclick="this.blur();play_pause()">&#9658;</li>
           <li id="sf" class="disp" onclick="this.blur();video1.currentTime -= 0.03;">&#10703;</li>
