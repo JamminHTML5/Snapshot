@@ -194,7 +194,7 @@ height:30px;
 
 <div id="master">
 
-<video id="video1" poster="Kodak - Crop.jpg" src="" onended="halt()"></video>
+<video id="video1" poster="https://lh5.googleusercontent.com/-91_JUzNbVRI/VP4Jrqu0viI/AAAAAAAAAKs/LUmiM1PXa38/s370/Kodak%2520-%2520Crop.jpg" src="" onended="halt()"></video>
 
 <div class="ProgBarHolder">
   <div id='bar'>
