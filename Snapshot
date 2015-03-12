@@ -109,7 +109,7 @@ else { document.getElementById("vol_div").style.display="inherit"; isShown = tru
 
 <style type='text/css'>
 
-/* Snapshot */
+/* Progress Bar */
 
 #bar{
     background-color:white;
@@ -142,8 +142,7 @@ else { document.getElementById("vol_div").style.display="inherit"; isShown = tru
     background-position:0px 0px;
 }
 
-.disp {
-    display:inline;
+.disp {                           /* Prevent selection hilight */
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -153,6 +152,8 @@ else { document.getElementById("vol_div").style.display="inherit"; isShown = tru
 }
 
 .ptr {cursor:default}
+
+#menu {height:30px} 
 
 #cs {position:relative; top:2px; cursor:default}
 #st {position:relative; top:-1px; font-size:17pt; cursor:default}
@@ -177,13 +178,14 @@ transform: rotate(-90deg);
 
 /* Snapshot */
 
-#master{ border:1px solid black; text-align:center }
-#video1{ max-height:320px }
+#redo {position:relative; top:3px}
+#master {border:1px solid black; text-align:center}
+#video1 {max-height:320px}
 
-.ProgBarHolder{
+.ProgBarHolder {
 background-color:blue;
 border-top: 1px solid black;
-height:30px;
+height:30px
 }
 
 #thumboutput {margin-top:5px; margin-bottom:5px}
@@ -205,26 +207,29 @@ height:30px;
 
 <table cellspacing="0" cellpadding="0" style="background-color:blue;color:white;width:100%">
   <tr>
-    <td style="text-align:right; width:100px">
+    <td style="width:130px">&nbsp;
+      <span id="redo" onclick="window.location.reload()">
+        <img src='https://lh3.googleusercontent.com/-m5Bs6jzCkOA/VPeACkM5xEI/AAAAAAAAAD0/uQSDeHNxfRo/s22/refresh-icon.png' height='20px'/>
+      </span>&nbsp;
       <input type="file" id="filesToUpload" accept="video/*" style="display:none" onChange="makeFile()" />
         <button style="position:relative;top:-2px" onClick="filesToUpload.click()">Select Video</button>
     </td>
     <td style="text-align:center; width:120px" id="bothTimesWhole">&nbsp;</td>
     <td id="vidtitle" style="color:white;font-size:20px;text-align:center">Snapshot</td>
-      <td class="tdata" style="text-align:right; width:180px" valign="top">
-        <div id="menu" style='height:30px'>
-          <li id="cs" class="disp" onclick="this.blur();shoot()"><img src="https://lh6.googleusercontent.com/-1wZ0y5_Sqbc/VPeABkKgJEI/AAAAAAAAADY/dmTU5kt3Z-8/s128/camera-icon.png" />&nbsp;</li>
-          <li id="st" class="disp" onclick="this.blur();halt()">&#8718;&nbsp;</li>
-          <li id="pp" class="disp" onclick="this.blur();play_pause()">&#9658;</li>
-          <li id="sf" class="disp" onclick="this.blur();video1.currentTime -= 0.03;">&#10703;</li>
-          <li id="sb" class="disp" onclick="this.blur();video1.currentTime += 0.03;">&#10704;&nbsp;</li>
-          <li id="sp" class="disp" onclick="this.blur(); show_hide_vol()">
+      <td class="tdata" style="text-align:right; width:250px" valign="top">
+        <div class="disp">
+          <span id="cs" onclick="this.blur();shoot()"><img src="https://lh6.googleusercontent.com/-1wZ0y5_Sqbc/VPeABkKgJEI/AAAAAAAAADY/dmTU5kt3Z-8/s30/camera-icon.png" />&nbsp;</span>
+          <span id="st" onclick="this.blur();halt()">&#8718;&nbsp;</span>
+          <span id="pp" onclick="this.blur();play_pause()">&#9658;</span>
+          <span id="sf" onclick="this.blur();video1.currentTime -= 0.03;">&#10703;</span>
+          <span id="sb" onclick="this.blur();video1.currentTime += 0.03;">&#10704;&nbsp;</span>
+          <span id="sp" onclick="this.blur(); show_hide_vol()">
             <div id="vol_div">
               <input class="rotateLeft" type="range" min="0" max="100" step="1" value="100" onchange="video1.volume = this.value * 0.01" />
             </div>
             <img src="https://lh5.googleusercontent.com/-7UAEJHjZktA/VPeADO6pquI/AAAAAAAAAEI/XSYsJKEkL4I/s512/volume-full-icon-64.png" height="24"/>
             &nbsp;&nbsp;
-          </li>
+          </span>
         </div> 
       </td>
   </tr>
