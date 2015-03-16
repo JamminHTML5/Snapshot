@@ -12,6 +12,9 @@ var bar, slider, w=0;
 
 function initProgressBar()
 {
+document.getElementById("vol_div").style.display="none";
+isShown=false;
+
 v1 = document.getElementById('video1');
 pp = document.getElementById('pp');
 
@@ -81,23 +84,17 @@ var isShown = new Boolean();  // Volume Slider
 function halt() { 
 v1.currentTime=0;
 v1.pause();
-pp.innerHTML="&#9658;";
+pp.src="https://lh5.googleusercontent.com/-IIiZ8hWrv1k/VQLsZXTdRHI/AAAAAAAAAMc/bvEYTcnk5XA/s73/Play.png";
 }
 
 function play_pause() { 
   if (v1.paused) {
     v1.play();
-    pp.style.paddingLeft="1px"
-    pp.style.top="-4px";
-    pp.style.fontSize="9pt";
-    pp.innerHTML="&#9612;&#9612;";
+    pp.src="https://lh6.googleusercontent.com/-NJHb-5Oj0zs/VQLsZb3CaeI/AAAAAAAAAMc/W0uyQvEZ83E/s73/Pause.png";
   } 
   else {
     v1.pause();
-    pp.style.paddingLeft="0px"
-    pp.style.top="0px";
-    pp.style.fontSize="15pt";
-    pp.innerHTML="&#9658;";
+    pp.src="https://lh5.googleusercontent.com/-IIiZ8hWrv1k/VQLsZXTdRHI/AAAAAAAAAMc/bvEYTcnk5XA/s73/Play.png";
   } 
 }
 
@@ -153,14 +150,12 @@ else { document.getElementById("vol_div").style.display="inherit"; isShown = tru
 
 .ptr {cursor:default}
 
-#menu {height:30px} 
-
-#cs {position:relative; top:2px; cursor:default}
-#st {position:relative; top:-1px; font-size:17pt; cursor:default}
-#pp {position:relative; top:0px; font-size:15pt; cursor:default}
-#sf {position:relative; top:-1px; font-size:13pt; cursor:default}
-#sb {position:relative; top:-1px; font-size:13pt; cursor:default}
-#sp {position:relative; top:5px; cursor:default}
+#cs {position:relative; top:3px}
+#st {font-size:17pt}
+#pp {position:relative; top:7px}
+#sb {font-size:13pt}
+#sf {font-size:13pt}
+#sp {position:relative; top:7px}
 
 #vol_div {
 position:absolute;
@@ -182,6 +177,7 @@ transform: rotate(-90deg);
 #master {border:1px solid black; text-align:center}
 #video1 {max-height:320px}
 
+#bothTimesWhole {text-align:center; width:120px}
 .ProgBarHolder {
 background-color:blue;
 border-top: 1px solid black;
@@ -192,7 +188,7 @@ height:30px
 </style>
 </head>
 
-<body onload='initProgressBar(); document.getElementById("vol_div").style.display="none"; isShown=false'>
+<body onload='initProgressBar()'>
 
 <div id="master">
 
@@ -205,22 +201,20 @@ height:30px
   </div>
 </div>
 
-<table cellspacing="0" cellpadding="0" style="background-color:blue;color:white;width:100%">
+<table cellspacing="0" cellpadding="0" style="background-color:blue; color:white; cursor:default; width:100%">
   <tr>
-    <td style="width:130px">&nbsp;
-      <span id="redo" onclick="window.location.reload()">
-        <img src='https://lh3.googleusercontent.com/-m5Bs6jzCkOA/VPeACkM5xEI/AAAAAAAAAD0/uQSDeHNxfRo/s22/refresh-icon.png' height='20px'/>
-      </span>&nbsp;
+    <td style="width:130px">
+      &nbsp;<span id="redo" onclick="window.location.reload()"><img src='https://lh3.googleusercontent.com/-m5Bs6jzCkOA/VPeACkM5xEI/AAAAAAAAAD0/uQSDeHNxfRo/s22/refresh-icon.png' height='20px'/></span>&nbsp;
       <input type="file" id="filesToUpload" accept="video/*" style="display:none" onChange="makeFile()" />
         <button style="position:relative;top:-2px" onClick="filesToUpload.click()">Select Video</button>
     </td>
-    <td style="text-align:center; width:120px" id="bothTimesWhole">&nbsp;</td>
+    <td id="bothTimesWhole">&nbsp;</td>
     <td id="vidtitle" style="color:white;font-size:20px;text-align:center">Snapshot</td>
       <td class="tdata" style="text-align:right; width:250px" valign="top">
         <div class="disp">
           <span id="cs" onclick="this.blur();shoot()"><img src="https://lh6.googleusercontent.com/-1wZ0y5_Sqbc/VPeABkKgJEI/AAAAAAAAADY/dmTU5kt3Z-8/s30/camera-icon.png" />&nbsp;</span>
           <span id="st" onclick="this.blur();halt()">&#8718;&nbsp;</span>
-          <span id="pp" onclick="this.blur();play_pause()">&#9658;</span>
+          <span onclick="this.blur();play_pause()"><img id="pp" src="https://lh5.googleusercontent.com/-IIiZ8hWrv1k/VQLsZXTdRHI/AAAAAAAAAMc/bvEYTcnk5XA/s73/Play.png" width="24px" /></span>
           <span id="sf" onclick="this.blur();video1.currentTime -= 0.03;">&#10703;</span>
           <span id="sb" onclick="this.blur();video1.currentTime += 0.03;">&#10704;&nbsp;</span>
           <span id="sp" onclick="this.blur(); show_hide_vol()">
